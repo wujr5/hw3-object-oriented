@@ -1,0 +1,39 @@
+body {
+	font-weight: bold;
+	font-family: verdana,arial,sans-serif;
+	text-align: left;
+}
+table {
+	border-collapse:collapse;
+}
+table * {
+	border: 1px solid #999999;
+	outline: none;
+}
+#todo tr, #todo td, #todo th {
+	padding: 5px;
+}
+#staff tr, #staff td, #staff th {
+	padding: 5px 35px 5px 5px;
+}
+thead tr {
+	background: rgb(2, 27, 127);
+	color: white;
+}
+tbody tr:nth-child(odd) {
+	background: white;
+}
+tbody tr:nth-child(even) {
+	background: rgb(221, 221, 221);
+}
+thead tr th.ascend {
+	background: rgb(164, 176, 252) url("ascend.png") no-repeat right center;
+}
+thead tr th.descend {
+	background: rgb(164, 176, 252) url("descend.png") no-repeat right center;
+}
+span.highlight {
+	border: none;
+	font-style: italic;
+	color: #00FA9A;
+}
