@@ -1,0 +1,17 @@
+table, th, td {
+	text-align: left;
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+
+th {
+	background-color: DarkBlue;
+	color: white;
+	font-weight: bold;
+}
+
+tr th img {
+    float: right;
+}
+
+
