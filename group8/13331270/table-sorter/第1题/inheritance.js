@@ -29,27 +29,20 @@ window.onload = function() {
 		this.instanceVariable = name;
 	}
 
-	//定义继承类静态属性
-	Derived.staticVariable = 'Derived';
-	Derived.prototype.instanceMethod = function() {
-		console.log("This is from Derived class instance-method, instance-variable is: " + this.instanceVariable);
-	};
-	Derived.staticMethod = function() {
-		console.log("This is from Derived class instance-method, instance-variable is: " + this.staticVariable);
-	};
+	Derived.staticVariable = 'Derived'
 
 	//定义extend函数，实现继承
-	// function extend(base, derived) {
-	// 	derived.staticMethod = function() {
-	// 		base.staticMethod.call(this);
-	// 		console.log("This is from Derived class instance-method, instance-variable is: " + this.staticVariable);
-	// 	};
+	function extend(base, derived) {
+		derived.staticMethod = function() {
+			base.staticMethod.call(this);
+			console.log("This is from Derived class instance-method, instance-variable is: " + this.staticVariable);
+		};
 
-	// 	derived.prototype.instanceMethod = function() {
-	// 		base.prototype.instanceMethod.call(this);
-	// 		console.log("This is from Derived class instance-method, instance-variable is: " + this.instanceVariable);
-	// 	};
-	// }
+		derived.prototype.instanceMethod = function() {
+			base.prototype.instanceMethod.call(this);
+			console.log("This is from Derived class instance-method, instance-variable is: " + this.instanceVariable);
+		};
+	}
 
 	extend(Base, Derived);
 
