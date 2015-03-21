@@ -1,7 +1,7 @@
 /******************************************
-In file inheritance.js
+In file sorter.js
 First edited by Jiarong wu on 11/4/2014
-Last edited by Jiarong wu on 11/6/2014
+Last edited by Jiarong wu on 3/22/2015
 Tel:18819473271 Email:973430584@qq.com
 *******************************************/
 
@@ -136,17 +136,20 @@ function filterTheTable(filterText, table) {
   var tbody = table.tBodies[0];
   var tbodyRows = tbody.rows;
   
-  for (var i = 0; i < tbodyRows.length; i++) {
+  for (var i = 0;i < tbodyRows.length; i++) {
     if (tbodyRows[i].textContent.toLowerCase().indexOf(filterText.toLowerCase()) == -1) {
       tbodyRows[i].style.display = "none";
     } else {
-      for (var j = 0; j < tbodyRows[i].cells.length; j++) {
-        if (tbodyRows[i].cells[j].textContent.toLowerCase().indexOf(filterText.toLowerCase()) != -1) {
+      for (var j = 0; filterText && filterText != "" && j < tbodyRows[i].cells.length; j++) {
+        var index = 0;
+        while (tbodyRows[i].cells[j].textContent.toLowerCase().indexOf(filterText.toLowerCase(), index) != -1) {
           var length = filterText.length;
-          var index = tbodyRows[i].cells[j].textContent.toLowerCase().indexOf(filterText.toLowerCase())
+          var index = tbodyRows[i].cells[j].textContent.toLowerCase().indexOf(filterText.toLowerCase(), index)
+
           for (var k = index; k < index + length; k++) {
             tbodyRows[i].cells[j].querySelectorAll('span')[k].className = 'textHighLight';
           }
+          index = index + length;
         }
       }
       tbodyRows[i].style.display = "";
